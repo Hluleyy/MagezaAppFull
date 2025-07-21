@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Admin Panel</h1>
+
+<div id="users-container"></div>
+
+<script>
+fetch('/users')
+.then(res => res.json())
+.then(users => {
+    const container = document.getElementById('users-container');
+    users.forEach(user => {
+        const div = document.createElement('div');
+        div.innerHTML = `
+            <p><strong>${user.name}</strong> (${user.userType}) - ${user.contacts}
+            <button onclick="removeUser('${user.name}')">Delete</button></p>
+        `;
+        container.appendChild(div);
+    });
+});
+
+function removeUser(name) {
+    fetch('/users/' + encodeURIComponent(name), {
+        method: 'DELETE'
+    })
+    .then(res => res.json())
+    .then(data => {
+        alert(data.message);
+        location.reload();
+    });
+}
+</script>
+
+</body>
+</html>

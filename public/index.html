@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Mageza App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="splash">
+    <img src="mageza-logo.png" alt="Mageza Logo">
+    <h6>FAST. SAFE. LOCAL.</h6>
+</div>
+
+<div id="app" style="display:none;">
+    <nav>
+        <div class="menu-btn">
+            <div class="line line--1"></div>
+            <div class="line line--2"></div>
+            <div class="line line--3"></div>
+        </div>
+        <div class="nav-links">
+            <a href="admin.html" class="link">Admin</a>
+            <a href="#" class="link">Driver</a>
+            <a href="#" class="link">Passenger</a>
+        </div>
+    </nav>
+
+    <div class="input-boxes">
+        <form id="register-form">
+            <h2>Register</h2>
+            <input type="text" id="name" placeholder="Name & Surname" required />
+            <label for="userType">Select User</label>
+            <select id="userType" required>
+                <option value="">--Choose Role--</option>
+                <option>Admin</option>
+                <option>Driver</option>
+                <option>Passenger</option>
+            </select>
+            <input type="text" id="contacts" placeholder="Cell or Email" required />
+            <button type="submit">Register</button>
+            <p id="errorMessage" class="error-message"></p>
+        </form>
+    </div>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
